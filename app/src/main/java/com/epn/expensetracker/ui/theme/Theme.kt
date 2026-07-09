@@ -1,6 +1,5 @@
 package com.epn.expensetracker.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -12,32 +11,39 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = SanaGreen,
+    onPrimary = SanaBlueDark,
+    primaryContainer = SanaGreenDark,
+    onPrimaryContainer = SanaGreenLight,
+    secondary = SanaBlue,
+    onSecondary = White,
+    background = DarkBackground,
+    onBackground = OffWhite,
+    surface = DarkSurface,
+    onSurface = OffWhite,
+    surfaceVariant = SanaBlueDark,
+    onSurfaceVariant = TextSecondary
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    primary = SanaGreen,
+    onPrimary = White,
+    primaryContainer = SanaGreenLight,
+    onPrimaryContainer = SanaBlue,
+    secondary = SanaBlue,
+    onSecondary = White,
+    background = White,
+    onBackground = TextPrimary,
+    surface = OffWhite,
+    onSurface = TextPrimary,
+    surfaceVariant = SanaGreenLight,
+    onSurfaceVariant = TextSecondary
 )
 
 @Composable
 fun ExpenseTrackerTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -53,6 +59,7 @@ fun ExpenseTrackerTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
+        shapes = Shapes,
         content = content
     )
 }
